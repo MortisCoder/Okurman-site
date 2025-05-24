@@ -107,6 +107,11 @@
       animation: fadeInUp 1s ease-out forwards;
     }
 
+    #toggleLang {
+        position: fixed;
+        top: -10px;
+    }
+
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -162,5 +167,41 @@
     <h5>HTML, CSS и JavaScript — основа любого сайта. HTML создаёт структуру, CSS — стиль и красоту, JavaScript — интерактив и жизнь. Вместе они превращают идеи в работающие и красивые веб-приложения.</h5>
     <h2>За 6 Месяцев</h2>
   </div>
+  <button id="toggleLang" style="margin: 20px; padding: 10px 20px; font-size: 16px; border-radius: 10px; border: none; background-color: black; color: white; cursor: pointer;">
+    Кыргызча
+  </button>
+  <script>
+    let isRussian = true;
+  
+    document.getElementById('toggleLang').addEventListener('click', () => {
+      isRussian = !isRussian;
+      document.getElementById('toggleLang').innerText = isRussian ? 'Кыргызча' : 'Русский';
+  
+      document.querySelector('h1').innerText = isRussian ? 'Okurman-IT' : 'Окурман-IT';
+      document.querySelector('h2').innerText = isRussian ? 'Чему вы научитесь?' : 'Сиз эмнени үйрөнөсүз?';
+      document.querySelectorAll('h4')[0].innerText = isRussian ? '- JavaScript' : '- ЖаваСкрипт';
+      document.querySelectorAll('h4')[1].innerText = isRussian ? '- HTML' : '- HTML';
+      document.querySelectorAll('h4')[2].innerText = isRussian ? '- CSS' : '- CSS';
+  
+      document.querySelectorAll('p')[0].innerHTML = isRussian
+        ? '<span>Зачем учить JavaScript?</span>JavaScript делает сайты живыми — с ним ты создашь анимации, игры, кнопки и даже полноценные приложения. Это простой язык для старта и востребованный навык в мире IT.'
+        : '<span>Эмне үчүн JavaScript үйрөнүү керек?</span>JavaScript веб-сайттарды жандуу кылат — анын жардамы менен анимациялар, оюндар, баскычтар жана колдонмолорду түзө аласыз. Бул баштоо үчүн жөнөкөй жана IT дүйнөсүндө талап кылынган тил.';
+  
+      document.querySelectorAll('p')[1].innerHTML = isRussian
+        ? '<span>Зачем учить HTML?</span>HTML — это основа любого сайта. Он помогает размещать текст, картинки, кнопки и другие элементы на странице. Без HTML не будет ни одного веб-сайта!'
+        : '<span>Эмне үчүн HTML үйрөнүү керек?</span>HTML — бул ар бир сайттын негизги бөлүгү. Ал текст, сүрөттөр, баскычтар жана башка элементтерди жайгаштырууга жардам берет. HTMLсиз веб-сайт болбойт!';
+  
+      document.querySelectorAll('p')[2].innerHTML = isRussian
+        ? '<span>Зачем учить CSS?</span>CSS — это стиль и магия внешнего вида. Делает сайты красивыми, адаптивными и живыми. Без него всё было бы серым и скучным!'
+        : '<span>Эмне үчүн CSS үйрөнүү керек?</span>CSS — бул кооздук жана дизайн. Ал веб-сайттарды көрктүү, ыңгайлаштырылган жана жандуу кылат. CSS болбосо, бардыгы боз жана кызыксыз болмок!';
+  
+      document.querySelector('h5').innerText = isRussian
+        ? 'HTML, CSS и JavaScript — основа любого сайта. HTML создаёт структуру, CSS — стиль и красоту, JavaScript — интерактив и жизнь. Вместе они превращают идеи в работающие и красивые веб-приложения.'
+        : 'HTML, CSS жана JavaScript — ар бир веб-сайттын негизи. HTML түзүмдү түзөт, CSS стилди жана кооздукту берет, ал эми JavaScript интерактивдүүлүк жана жан берет. Алар чогуу идеяларды кооз жана иштеген веб-тиркемелерге айландырат.';
+  
+      document.querySelectorAll('h2')[1].innerText = isRussian ? 'За 6 Месяцев' : '6 айдын ичинде';
+    });
+  </script>
+  
 </body>
 </html>
